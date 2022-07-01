@@ -6,9 +6,9 @@ import { Header, CreateItem, Maincontainer } from "./components";
 const App = () => {
   return (
     <AnimatePresence exitBeforeEnter >
-      <div className="w-screen h-auto flex flex-col text-red-400">
+      <div className="w-screen h-auto flex flex-col text-blue-900">
         <Header />
-        <main className="mt-44 p-8 w-full">
+        <main className="mt-20 md:mt-24 px-4 md:px-16 py-1 w-full">
           <Routes>
             <Route path="/" element={<Maincontainer />} />
             <Route path="/createItem" element={<CreateItem />} />

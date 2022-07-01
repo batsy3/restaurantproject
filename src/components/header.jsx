@@ -171,7 +171,6 @@ const Header = () => {
           </motion.div>
         </div>
       </div>
-      main container
     </header>
   );
 };

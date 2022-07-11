@@ -1,7 +1,7 @@
 import React from "react";
+import { herodata } from "../utils/data";
 import delivery from "./assets/delivery.webp";
 import heroBg from "./assets/heroBg.png";
-import i1 from "./assets/i1.png";
 function HomeComponent() {
   return (
     <section
@@ -46,17 +46,30 @@ function HomeComponent() {
           src={heroBg}
           alt=""
         />
-        <div className="w-full h-full absolute top-0 left-0 px-32 py-4 flex items-center justify-center">
-          <div className="w-190 p-4 bg-cartBg backdrop-blur-md rounded-3xl flex flex-col items-center justify-center ">
-            <img src={i1} alt="something" className="h-70 -mt-20" />
-            <p className="text-base font-semibold mt-6 text-textColor">Ice Cream</p>
-            <p className="text-lg  text-gray-400 font-semibold">
-              chocolate & vanilla{" "}
-            </p>
-            <p className="font-bold ">
-              <span className="text-red-900">$</span>5.43
-            </p>
-          </div>
+        <div className="lg:px-32 h-full w-full flex-wrap gap-4  absolute top-0 left-0 flex items-center justify-center py-4">
+          {herodata &&
+            herodata.map((item) => (
+              <div
+                key={item.id}
+                className="lg:w-190 p-4  bg-cartBg backdrop-blur-md rounded-xl flex flex-col items-center justify-center drop-shadow-lg"
+              >
+                <img
+                  src={item.imgsrc}
+                  alt="something"
+                  className=" w-20 lg:w-40 -mt-10  lg:-mt-20"
+                />
+                <p className="text-base lg:text-xl font-semibold mt2 lg:mt-6 text-textColor">
+                  {item.name}
+                </p>
+                <p className="text-[12px]  text-gray-400 font-semibold my-1 lg:my-3">
+                  {item.desc}
+                </p>
+                <p className="font-bold ">
+                  <span className="text-red-900">$</span>
+                  {item.price}
+                </p>
+              </div>
+            ))}
         </div>
       </div>
     </section>

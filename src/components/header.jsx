@@ -38,7 +38,7 @@ const Header = () => {
     }
   };
   return (
-    <header className="fixed z-50 w-screen p-3 px-7 md:p-6 md:px-16">
+    <header className="bg-white fixed z-50 w-screen p-2 px-7 md:p-6 md:px-16">
       {/* desktop */}
       <div className="hidden md:flex w-full h-full items-center justify-between">
         <Link to={"/"} className="flex items-center gap-2 ">
@@ -53,16 +53,16 @@ const Header = () => {
             exit={{ opacity: 0, x: 200 }}
             className="flex items-center gap-8 "
           >
-            <li className="text-base hover:text-blue-600 duration-100 transition-all ease-in-out cursor-pointer">
+            <li  onClick={()=>setmenu(false)} className="text-base hover:text-blue-600 duration-100 transition-all ease-in-out cursor-pointer">
               Home
             </li>
-            <li className="text-base hover:text-blue-600 duration-100 transition-all ease-in-out cursor-pointer ">
+            <li  onClick={()=>setmenu(false)} className="text-base hover:text-blue-600 duration-100 transition-all ease-in-out cursor-pointer ">
               Menu
             </li>
-            <li className="text-base hover:text-blue-600 duration-100 transition-all ease-in-out cursor-pointer ">
+            <li  onClick={()=>setmenu(false)} className="text-base hover:text-blue-600 duration-100 transition-all ease-in-out cursor-pointer ">
               Contacts
             </li>
-            <li className="text-base hover:text-blue-600 duration-100 transition-all ease-in-out cursor-pointer ">
+            <li  onClick={()=>setmenu(false)} className="text-base hover:text-blue-600 duration-100 transition-all ease-in-out cursor-pointer ">
               services
             </li>
           </motion.ul>
@@ -88,7 +88,7 @@ const Header = () => {
             {menu && (
               <div className="w-44 bg-slate-400  text-white shadow-xl rounded-lg flex flex-col absolute right-2 px-5 py-2  ">
                 {user && user.email === "dvdokuku@gmail.com" && (
-                  <Link to={"/createItem"}>
+                  <Link onClick={()=>setmenu(false)}  to={"/createItem"}>
                     <p className="px-4 py-1.5 flex items-center gap-2 cursor-pointer hover:bg-slate-400 transition-all duration-100 ease-in-out text-base ">
                       New item <MdAdd />
                     </p>
@@ -145,16 +145,16 @@ const Header = () => {
                   </Link>
                 )}
                 <ul className="flex flex-col gap-3 ">
-                  <li className="text-base px-3 py-1.5  hover:bg-slate-200 transition-all duration-100 ease-in-out ">
+                  <li  onClick={()=>setmenu(false)} className="text-base px-3 py-1.5  hover:bg-slate-200 transition-all duration-100 ease-in-out ">
                     Home
                   </li>
-                  <li className="text-base px-3 py-1.5 hover:bg-slate-200 transition-all duration-100 ease-in-out  ">
+                  <li  onClick={()=>setmenu(false)} className="text-base px-3 py-1.5 hover:bg-slate-200 transition-all duration-100 ease-in-out  ">
                     Menu
                   </li>
-                  <li className="text-base px-3 py-1.5 hover:bg-slate-200 transition-all duration-100 ease-in-out  ">
+                  <li onClick={()=>setmenu(false)}  className="text-base px-3 py-1.5 hover:bg-slate-200 transition-all duration-100 ease-in-out  ">
                     Contacts
                   </li>
-                  <li className="text-base px-3 py-1.5 hover:bg-slate-200 transition-all duration-100 ease-in-out  ">
+                  <li  onClick={()=>setmenu(false)} className="text-base px-3 py-1.5 hover:bg-slate-200 transition-all duration-100 ease-in-out  ">
                     services
                   </li>
                 </ul>

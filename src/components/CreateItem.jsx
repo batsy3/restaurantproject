@@ -114,7 +114,7 @@ const CreateItem = () => {
       console.log(`this is an error ${error}`);
       setAlert("danger");
       setFields(true);
-      setMsg("Item failed to successfull");
+      setMsg("Item failed to upload");
       setLoading(false);
       setTimeout(() => {
         setFields(false);
@@ -122,6 +122,8 @@ const CreateItem = () => {
     }
     setItem(defaultObj);
     setLoading(false)
+    setImage(null)
+    
   };
   const deleteimage = () => {
     setLoading(true);

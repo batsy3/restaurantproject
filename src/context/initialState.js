@@ -4,5 +4,6 @@ const userinfo = fetchUser()
 
 
 export const initialState = {
-    user:userinfo  
+    user: userinfo  ,
+    foodItems:null
 }

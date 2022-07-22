@@ -16,8 +16,12 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import { storage } from "../firebase.config";
-import { saveItem } from "../utils/fireBaseFunction";
+import { getitem, saveItem } from "../utils/fireBaseFunction";
+import { useStateValue } from "../context/stateProvider";
+import { actionType } from "../context/reducer";
+
 const CreateItem = () => {
+  const [{ foodItems }, dispatch] = useStateValue();
   const [item, setItem] = useState({
     title: "",
     price: "",
@@ -81,6 +85,15 @@ const CreateItem = () => {
     setItem(item);
     setImage(null);
   };
+
+  const fetchData = async() => {
+    await getitem().then((data) => {
+      dispatch({
+        type:actionType. SET_FOOD_ITEMS,
+        foodItems: data
+      })
+    })
+  }
   const uploadItem = () => {
     setLoading(true);
     try {
@@ -106,6 +119,7 @@ const CreateItem = () => {
         setAlert("success");
         setFields(true);
         setMsg("Item uploaded successfully");
+        fetchData();
         setTimeout(() => {
           setFields(false);
         }, 4000);

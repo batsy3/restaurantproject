@@ -7,7 +7,7 @@ import {
   setDoc,
   getDocs,
 } from "firebase/firestore";
-import { firestore } from "../firebase.config";
+import { firestore, storage } from "../firebase.config";
 
 export const saveItem = async (data) => {
   await setDoc(doc(firestore, "foodItems", `${Date.now()}`), data, {
@@ -16,7 +16,8 @@ export const saveItem = async (data) => {
 };
 export const getitem = async () => {
   const item = await getDocs(
-    query(collection(firestore, "foodItem", orderBy("id", "desc")))
+    query(collection(firestore, "foodItems"), orderBy("id", "desc"))
   );
   return item.docs.map((doc) => doc.data());
 };
+

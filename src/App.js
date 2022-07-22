@@ -4,10 +4,16 @@ import { Routes, Route } from "react-router-dom";
 import { Header, CreateItem, Maincontainer } from "./components";
 import { useStateValue } from "./context/stateProvider";
 import { getitem } from "./utils/fireBaseFunction";
+import { actionType } from "./context/reducer";
 const App = () => {
-  const [{}, dispatch] = useStateValue();
+  const [{foodItems}, dispatch] = useStateValue();
   const fetchdata = async () => {
-    await getitem().then((data) => console.log(data));
+    await getitem().then((data) => {
+      dispatch({
+        type: actionType.SET_FOOD_ITEMS,
+        foodItems: data
+      })
+    });
   };
   useEffect(() => {
     fetchdata();

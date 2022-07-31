@@ -3,7 +3,7 @@ import React from "react";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import delivery from "./assets/delivery.webp";
 import HomeComponent from "./HomeComponent";
-
+import Rowcontainer from "./Rowcontainer";
 
 const Maincontainer = () => {
   return (
@@ -20,16 +20,18 @@ const Maincontainer = () => {
               whileTap={{ scale: 0.5 }}
               className="w-8 h-8 rounded-lg bg-amber-300 items-center justify-center hover:bg-amber-500 cursor-pointer transition-all ease-in-out duration-100 hover:shadow-lg"
             >
-              <MdChevronLeft className="text-xl text-white items-center"/>
+              <MdChevronLeft className="text-xl left-10 mt-2 text-white items-center" />
             </motion.div>
             <motion.div
               whileTap={{ scale: 0.5 }}
-              className="w-8 h-8 rounded-lg bg-amber-300 items-center justify-center hover:bg-amber-500 cursor-pointer transition-all ease-in-out duration-100 hover:shadow-lg"
+              className="w-8 h-8 rounded-lg bg-amber-300  items-center justify-center hover:bg-amber-500 cursor-pointer transition-all ease-in-out duration-100 hover:shadow-lg"
             >
-              <MdChevronRight className="text-xl text-white"/>
+              <MdChevronRight className="text-xl mt-2 items-center justify-center text-white" />
             </motion.div>
           </div>
         </div>
+
+        <Rowcontainer flag={true} />
       </section>
     </div>
   );

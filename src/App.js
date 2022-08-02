@@ -17,7 +17,7 @@ const App = () => {
   };
   useEffect(() => {
     fetchdata();
-  }, []);
+  }, []); 
   return (
     <AnimatePresence exitBefor eEnter>
       <div className="w-screen h-auto flex flex-col text-blue-900">

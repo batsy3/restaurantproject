@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
 import React from "react";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-import delivery from "./assets/delivery.webp";
+import { useStateValue } from "../context/stateProvider";
 import HomeComponent from "./HomeComponent";
 import Rowcontainer from "./Rowcontainer";
 
 const Maincontainer = () => {
+  const [{ foodItems }, dispatch] = useStateValue();
+  console.log("food stuff should be", foodItems)
   return (
     <div className="w-full h-auto flex-col flex items-center justify-center ">
       <HomeComponent />
@@ -31,7 +33,7 @@ const Maincontainer = () => {
           </div>
         </div>
 
-        <Rowcontainer flag={true} />
+        <Rowcontainer flag={true} data={foodItems} />
       </section>
     </div>
   );
